@@ -7,31 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14638D5F1575AED700D2CB4B /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 14638D5E1575AED700D2CB4B /* 11-clock.png */; };
+		14638D611575AEEF00D2CB4B /* 103-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 14638D601575AEEF00D2CB4B /* 103-map.png */; };
+		14638D671575B00F00D2CB4B /* RecentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14638D661575B00F00D2CB4B /* RecentsViewController.m */; };
 		14B5FC111575A671004DCC53 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B5FC101575A671004DCC53 /* UIKit.framework */; };
 		14B5FC131575A671004DCC53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B5FC121575A671004DCC53 /* Foundation.framework */; };
 		14B5FC151575A671004DCC53 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B5FC141575A671004DCC53 /* CoreGraphics.framework */; };
 		14B5FC1B1575A671004DCC53 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FC191575A671004DCC53 /* InfoPlist.strings */; };
 		14B5FC1D1575A671004DCC53 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FC1C1575A671004DCC53 /* main.m */; };
 		14B5FC211575A671004DCC53 /* TopPlacesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FC201575A671004DCC53 /* TopPlacesAppDelegate.m */; };
-		14B5FC241575A671004DCC53 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FC221575A671004DCC53 /* MainStoryboard_iPhone.storyboard */; };
-		14B5FC271575A671004DCC53 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FC251575A671004DCC53 /* MainStoryboard_iPad.storyboard */; };
+		14B5FC241575A671004DCC53 /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FC221575A671004DCC53 /* iPhone.storyboard */; };
+		14B5FC271575A671004DCC53 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B5FC251575A671004DCC53 /* iPad.storyboard */; };
 		14B5FC2A1575A671004DCC53 /* TopPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B5FC291575A671004DCC53 /* TopPlacesViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14638D5E1575AED700D2CB4B /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		14638D601575AEEF00D2CB4B /* 103-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "103-map.png"; sourceTree = "<group>"; };
+		14638D621575AF4E00D2CB4B /* FlickrAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		14638D631575AF4E00D2CB4B /* FlickrFetcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		14638D641575AF4E00D2CB4B /* FlickrFetcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		14638D651575B00F00D2CB4B /* RecentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentsViewController.h; sourceTree = "<group>"; };
+		14638D661575B00F00D2CB4B /* RecentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentsViewController.m; sourceTree = "<group>"; };
 		14B5FC0C1575A671004DCC53 /* Top Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top Places.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14B5FC101575A671004DCC53 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		14B5FC121575A671004DCC53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		14B5FC141575A671004DCC53 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		14B5FC181575A671004DCC53 /* Top Places-Info.plist */ = {isa = PBXFileReference; path = "Top Places-Info.plist"; sourceTree = "<group>"; };
+		14B5FC181575A671004DCC53 /* Top Places-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Top Places-Info.plist"; sourceTree = "<group>"; };
 		14B5FC1A1575A671004DCC53 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		14B5FC1C1575A671004DCC53 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		14B5FC1E1575A671004DCC53 /* Top Places-Prefix.pch */ = {isa = PBXFileReference; path = "Top Places-Prefix.pch"; sourceTree = "<group>"; };
-		14B5FC1F1575A671004DCC53 /* TopPlacesAppDelegate.h */ = {isa = PBXFileReference; path = TopPlacesAppDelegate.h; sourceTree = "<group>"; };
+		14B5FC1E1575A671004DCC53 /* Top Places-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Top Places-Prefix.pch"; sourceTree = "<group>"; };
+		14B5FC1F1575A671004DCC53 /* TopPlacesAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopPlacesAppDelegate.h; sourceTree = "<group>"; };
 		14B5FC201575A671004DCC53 /* TopPlacesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPlacesAppDelegate.m; sourceTree = "<group>"; };
-		14B5FC231575A671004DCC53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		14B5FC261575A671004DCC53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		14B5FC281575A671004DCC53 /* TopPlacesViewController.h */ = {isa = PBXFileReference; path = TopPlacesViewController.h; sourceTree = "<group>"; };
+		14B5FC231575A671004DCC53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPhone.storyboard; sourceTree = "<group>"; };
+		14B5FC261575A671004DCC53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/iPad.storyboard; sourceTree = "<group>"; };
+		14B5FC281575A671004DCC53 /* TopPlacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopPlacesViewController.h; sourceTree = "<group>"; };
 		14B5FC291575A671004DCC53 /* TopPlacesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopPlacesViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,10 +91,17 @@
 			children = (
 				14B5FC1F1575A671004DCC53 /* TopPlacesAppDelegate.h */,
 				14B5FC201575A671004DCC53 /* TopPlacesAppDelegate.m */,
-				14B5FC221575A671004DCC53 /* MainStoryboard_iPhone.storyboard */,
-				14B5FC251575A671004DCC53 /* MainStoryboard_iPad.storyboard */,
+				14B5FC221575A671004DCC53 /* iPhone.storyboard */,
+				14638D651575B00F00D2CB4B /* RecentsViewController.h */,
+				14638D661575B00F00D2CB4B /* RecentsViewController.m */,
+				14B5FC251575A671004DCC53 /* iPad.storyboard */,
 				14B5FC281575A671004DCC53 /* TopPlacesViewController.h */,
 				14B5FC291575A671004DCC53 /* TopPlacesViewController.m */,
+				14638D621575AF4E00D2CB4B /* FlickrAPIKey.h */,
+				14638D631575AF4E00D2CB4B /* FlickrFetcher.h */,
+				14638D641575AF4E00D2CB4B /* FlickrFetcher.m */,
+				14638D5E1575AED700D2CB4B /* 11-clock.png */,
+				14638D601575AEEF00D2CB4B /* 103-map.png */,
 				14B5FC171575A671004DCC53 /* Supporting Files */,
 			);
 			path = "Top Places";
@@ -154,8 +171,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B5FC1B1575A671004DCC53 /* InfoPlist.strings in Resources */,
-				14B5FC241575A671004DCC53 /* MainStoryboard_iPhone.storyboard in Resources */,
-				14B5FC271575A671004DCC53 /* MainStoryboard_iPad.storyboard in Resources */,
+				14B5FC241575A671004DCC53 /* iPhone.storyboard in Resources */,
+				14B5FC271575A671004DCC53 /* iPad.storyboard in Resources */,
+				14638D5F1575AED700D2CB4B /* 11-clock.png in Resources */,
+				14638D611575AEEF00D2CB4B /* 103-map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +188,7 @@
 				14B5FC1D1575A671004DCC53 /* main.m in Sources */,
 				14B5FC211575A671004DCC53 /* TopPlacesAppDelegate.m in Sources */,
 				14B5FC2A1575A671004DCC53 /* TopPlacesViewController.m in Sources */,
+				14638D671575B00F00D2CB4B /* RecentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,20 +203,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		14B5FC221575A671004DCC53 /* MainStoryboard_iPhone.storyboard */ = {
+		14B5FC221575A671004DCC53 /* iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				14B5FC231575A671004DCC53 /* en */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
+			name = iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		14B5FC251575A671004DCC53 /* MainStoryboard_iPad.storyboard */ = {
+		14B5FC251575A671004DCC53 /* iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				14B5FC261575A671004DCC53 /* en */,
 			);
-			name = MainStoryboard_iPad.storyboard;
+			name = iPad.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,6 +310,7 @@
 				14B5FC2F1575A671004DCC53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
