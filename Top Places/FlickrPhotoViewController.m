@@ -12,13 +12,27 @@
 @interface FlickrPhotoViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @end
 
 @implementation FlickrPhotoViewController
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
+@synthesize toolbar = _toolbar;
 @synthesize photo = _photo;
 @synthesize photoTitle = _photoTitle;
+@synthesize splitViewBarButtonItem = _splitViewBarButtonItem;
+
+- (void)setSplitViewBarButtonItem:(UIBarButtonItem *)splitViewBarButtonItem
+{
+    if (splitViewBarButtonItem != _splitViewBarButtonItem) {
+        NSMutableArray *toolbarItems = [self.toolbar.items mutableCopy];
+        if (_splitViewBarButtonItem) [toolbarItems removeObject:_splitViewBarButtonItem];
+        if (splitViewBarButtonItem) [toolbarItems insertObject:splitViewBarButtonItem atIndex:0];
+        self.toolbar.items = toolbarItems;
+        _splitViewBarButtonItem = splitViewBarButtonItem;
+    }
+}
 
 - (void)centerFlickrPhotoScrollView
 {
@@ -84,6 +98,7 @@
             return;
         }
     }
+    
     [photos insertObject:self.photo atIndex:0];
     [defaults setObject:photos forKey:RECENTS_KEY];
     [defaults synchronize];
@@ -93,7 +108,10 @@
 {
     if (photo != _photo) {
         _photo = photo;
-        [self.imageView setNeedsDisplay];
+        if (photo) {
+            [self addPhotoToRecents];
+            [self loadFlickrImageFromUrlToView];
+        }
     }
 }
 
@@ -115,14 +133,13 @@
 {
     [super viewDidLoad];
     self.scrollView.delegate = self;
-    [self addPhotoToRecents];
-    [self loadFlickrImageFromUrlToView];
 }
 
 - (void)viewDidUnload
 {
     [self setScrollView:nil];
     [self setImageView:nil];
+    [self setToolbar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }

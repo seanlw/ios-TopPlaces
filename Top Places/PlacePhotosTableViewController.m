@@ -36,7 +36,7 @@
 #define MAX_PHOTO_RESULTS 50
 - (void)loadPhotosFromPlace:(NSDictionary *)place
 {
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? UIActivityIndicatorViewStyleGray : UIActivityIndicatorViewStyleWhite)];
     [spinner startAnimating];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner]; 
     
@@ -103,6 +103,15 @@
     return YES;
 }
 
+- (FlickrPhotoViewController *)splitViewFlickrPhotoViewController
+{
+    id hvc = [self.splitViewController.viewControllers lastObject];
+    if (![hvc isKindOfClass:[FlickrPhotoViewController class]]) {
+        hvc = nil; 
+    }
+    return hvc;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -129,7 +138,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.photo = [self.photos objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"FlickerPhotoSegue" sender:self];
+    if ([self splitViewFlickrPhotoViewController]) {
+        [self splitViewFlickrPhotoViewController].photo = self.photo;
+    }
+    else {
+        [self performSegueWithIdentifier:@"FlickerPhotoSegue" sender:self];
+    }
 }
 
 @end

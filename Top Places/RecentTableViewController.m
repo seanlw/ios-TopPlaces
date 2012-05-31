@@ -66,6 +66,15 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (FlickrPhotoViewController *)splitViewFlickrPhotoViewController
+{
+    id hvc = [self.splitViewController.viewControllers lastObject];
+    if (![hvc isKindOfClass:[FlickrPhotoViewController class]]) {
+        hvc = nil; 
+    }
+    return hvc;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [segue.destinationViewController setPhoto:self.photo];
@@ -103,7 +112,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.photo = [self.photos objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"RecentFlickerPhotoSegue" sender:self];
+    if ([self splitViewFlickrPhotoViewController]) {
+        [self splitViewFlickrPhotoViewController].photo = self.photo;
+    }
+    else {
+        [self performSegueWithIdentifier:@"RecentFlickerPhotoSegue" sender:self];
+    }
 }
 
 @end

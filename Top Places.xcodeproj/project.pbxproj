@@ -50,6 +50,7 @@
 		D12A1BEA157678E50084064B /* PlacePhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacePhotosTableViewController.m; sourceTree = "<group>"; };
 		D12A1BF41576B0560084064B /* FlickrPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrPhotoViewController.h; sourceTree = "<group>"; };
 		D12A1BF51576B0560084064B /* FlickrPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrPhotoViewController.m; sourceTree = "<group>"; };
+		D17261FE15780BE800A3CC92 /* SplitViewBarButtonItemPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitViewBarButtonItemPresenter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +97,7 @@
 		14B5FC161575A671004DCC53 /* Top Places */ = {
 			isa = PBXGroup;
 			children = (
+				D17261FE15780BE800A3CC92 /* SplitViewBarButtonItemPresenter.h */,
 				14B5FC221575A671004DCC53 /* iPhone.storyboard */,
 				14B5FC251575A671004DCC53 /* iPad.storyboard */,
 				14B5FC1F1575A671004DCC53 /* TopPlacesAppDelegate.h */,
