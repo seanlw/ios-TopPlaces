@@ -18,6 +18,7 @@
 @synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
 @synthesize photo = _photo;
+@synthesize photoTitle = _photoTitle;
 
 - (void)centerFlickrPhotoScrollView
 {
@@ -41,20 +42,51 @@
     self.imageView.frame = imageFrame;
 }
 
-- (void)loadFlickrImageFromUrlToView
+- (void)zoomAndCenterFlickrPhoto
 {
-    
-    NSData *data = [NSData dataWithContentsOfURL:[FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge]];
-    [self.imageView setImage:[UIImage imageWithData:data]];
-    self.scrollView.contentSize = self.imageView.image.size;
-    self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
-    self.title = [self.photo objectForKey:FLICKR_PHOTO_TITLE];
-    
     // zoom image fit.
     CGFloat scaleWidth = self.scrollView.frame.size.width / self.scrollView.contentSize.width;
     CGFloat scaleHeight = self.scrollView.frame.size.height / self.scrollView.contentSize.height;
     self.scrollView.zoomScale = self.scrollView.minimumZoomScale = MIN(scaleWidth, scaleHeight);
     [self centerFlickrPhotoScrollView];
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
+- (void)loadFlickrImageFromUrlToView
+{
+    
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [spinner startAnimating];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:spinner]; 
+    
+    dispatch_queue_t downloadPhoto = dispatch_queue_create("Flickr photo downloader", NULL);
+    dispatch_async(downloadPhoto, ^{
+        NSData *data = [NSData dataWithContentsOfURL:[FlickrFetcher urlForPhoto:self.photo format:FlickrPhotoFormatLarge]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.imageView setImage:[UIImage imageWithData:data]];
+            self.scrollView.zoomScale = 1;
+            self.scrollView.contentSize = self.imageView.image.size;
+            self.imageView.frame = CGRectMake(0, 0, self.imageView.image.size.width, self.imageView.image.size.height);
+            [self zoomAndCenterFlickrPhoto];
+        });
+    });
+    dispatch_release(downloadPhoto);
+}
+
+#define RECENTS_KEY @"photos"
+- (void)addPhotoToRecents
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *photos = [[defaults objectForKey:RECENTS_KEY] mutableCopy];
+    if (!photos) photos = [NSMutableArray array];
+    for (NSDictionary *photo in photos) {
+        if ([photo isEqualToDictionary:self.photo]) {
+            return;
+        }
+    }
+    [photos insertObject:self.photo atIndex:0];
+    [defaults setObject:photos forKey:RECENTS_KEY];
+    [defaults synchronize];
 }
 
 - (void)setPhoto:(NSDictionary *)photo
@@ -65,17 +97,26 @@
     }
 }
 
+- (void)setPhotoTitle:(NSString *)photoTitle
+{
+    if (photoTitle != _photoTitle) {
+        _photoTitle = photoTitle;
+        self.title = photoTitle;
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
-    [self loadFlickrImageFromUrlToView];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.scrollView.delegate = self;
+    [self addPhotoToRecents];
+    [self loadFlickrImageFromUrlToView];
 }
 
 - (void)viewDidUnload

@@ -7,6 +7,7 @@
 //
 
 #import "PlacePhotosTableViewController.h"
+#import "FlickrPhotoViewController.h"
 #import "FlickrFetcher.h"
 
 @interface PlacePhotosTableViewController ()
@@ -66,6 +67,13 @@
     }
 }
 
+- (NSString *)flickrPhotoTitle:(NSDictionary *)photo
+{
+    NSString *title = [photo objectForKey:FLICKR_PHOTO_TITLE];
+    NSString *description = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
+    return ([title length] == 0 ? (([description length] == 0) ? @"Unknown" : description) : title);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -87,6 +95,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     [segue.destinationViewController setPhoto:self.photo];
+    [segue.destinationViewController setPhotoTitle:[self flickrPhotoTitle:self.photo]];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -108,11 +117,9 @@
     
     // Configure the cell...
     NSDictionary *photo = [self.photos objectAtIndex:indexPath.row];
-    NSString *title = [photo objectForKey:FLICKR_PHOTO_TITLE];
-    NSString *description = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
-
-    cell.textLabel.text = ([title length] == 0 ? (([description length] == 0) ? @"Unknown" : description) : title);
-    cell.detailTextLabel.text = description;
+    
+    cell.textLabel.text = [self flickrPhotoTitle:photo];
+    cell.detailTextLabel.text = [photo valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
     
     return cell;
 }

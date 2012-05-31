@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FlickrPhotoViewController : UIViewController
+
 @property (nonatomic, strong) NSDictionary *photo;
+@property (nonatomic, strong) NSString *photoTitle;
+
 @end

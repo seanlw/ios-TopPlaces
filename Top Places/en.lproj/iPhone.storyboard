@@ -203,6 +203,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Recent" id="L2z-Br-Wh6"/>
+                    <connections>
+                        <segue destination="nES-ru-u2q" kind="push" identifier="RecentFlickerPhotoSegue" id="aoW-24-gJ0"/>
+                    </connections>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1223" y="652"/>
@@ -250,27 +253,12 @@
         <image name="103-map.png" width="26" height="21"/>
         <image name="11-clock.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="FlickrPhotoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FlickrPhotoViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="PlacePhotosTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PlacePhotosTableViewController.h"/>
-        </class>
-        <class className="RecentTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentTableViewController.h"/>
-        </class>
-        <class className="TopPlacesTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TopPlacesTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="aoW-24-gJ0"/>
+    </inferredMetricsTieBreakers>
 </document>

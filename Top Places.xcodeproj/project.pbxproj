@@ -96,18 +96,18 @@
 		14B5FC161575A671004DCC53 /* Top Places */ = {
 			isa = PBXGroup;
 			children = (
+				14B5FC221575A671004DCC53 /* iPhone.storyboard */,
+				14B5FC251575A671004DCC53 /* iPad.storyboard */,
 				14B5FC1F1575A671004DCC53 /* TopPlacesAppDelegate.h */,
 				14B5FC201575A671004DCC53 /* TopPlacesAppDelegate.m */,
 				D12A1BD2157659150084064B /* TopPlacesTableViewController.h */,
 				D12A1BD3157659150084064B /* TopPlacesTableViewController.m */,
-				14B5FC221575A671004DCC53 /* iPhone.storyboard */,
 				D12A1BF41576B0560084064B /* FlickrPhotoViewController.h */,
 				D12A1BF51576B0560084064B /* FlickrPhotoViewController.m */,
 				D12A1BE9157678E50084064B /* PlacePhotosTableViewController.h */,
 				D12A1BEA157678E50084064B /* PlacePhotosTableViewController.m */,
 				D12A1BD51576597D0084064B /* RecentTableViewController.h */,
 				D12A1BD61576597D0084064B /* RecentTableViewController.m */,
-				14B5FC251575A671004DCC53 /* iPad.storyboard */,
 				14638D621575AF4E00D2CB4B /* FlickrAPIKey.h */,
 				14638D631575AF4E00D2CB4B /* FlickrFetcher.h */,
 				14638D641575AF4E00D2CB4B /* FlickrFetcher.m */,
